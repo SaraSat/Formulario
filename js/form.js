@@ -16,7 +16,9 @@ document.getElementById("log").addEventListener("click", function () {
 function eventButtom(element1, element2, element3, valor){
   document.getElementById(element1).style.display="block";
   document.getElementById(element2).style.display="none";
-  document.getElementById(element3).style.display=valor;
+  if (element3) {
+    document.getElementById(element3).style.display=valor;
+  }
 }
 //función que cambia la apariencia del botón de logueo o registro para indicar al usuario dónde se encuentra
  function cambioButtom(element1, element2){
@@ -93,8 +95,8 @@ se crean las cookies de usuario y contraseña, y, se mostrará una bienvenida */
 function validarLogin(){
   var usuario=getCookie("usuario");
   var contraseña=getCookie("contraseña");
-  if(user.value==usuario && userPass==contraseña){
-    setCookie("User",user,1/24);
+  if(user.value==usuario && userPass.value == contraseña){
+    setCookie("User",user.value, 1/24);
     eventButtom("inicioSesion","login","form","none");
     return true;
   }else if(user.value!=usuario){
@@ -178,23 +180,12 @@ function validarMatch(id,mensaje){
     document.cookie=nombre +"="+valor+";"+expiracion+"; path=/"; //(nombre, valor, expiracion)
   }
   //Obtención de cookie por su nombre
-  function getCookie(nombre){
-    var n=nombre+"=";
-    var array=document.cookie.split(";"); //Creación de un array para guardar las cookies con nombre=valor --> nombre=valor;expiracion;
-    for(var i=0; i<array.length;i++){
-        var c=array[i]; //a c se le asigna cada cookie y su valor
-        while (c.charAt(0)==" "){ 
-          c=c.substring(1) // Se va extrayendo el caracter 0 hasta encontrar un espacio
-        }
-        if(c.indexOf(nombre)==0){
-          return c.substring(n.length,c.length); //Obtencion del valor de la cookie
-        }else{
-              return " "; //Si no se encuentra una cookie con el nombre introducido, no devuelve nada
-
-        }
-
-    }
-  }
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+  
   //Borrar cookies
   function deleteCookie(nombre){
     setCookie(nombre,"",0); //Creación de una cookie sin valor 
