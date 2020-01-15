@@ -62,9 +62,7 @@ a {
     background:rgb(79, 117, 79) 
    }
 
-  .tab-content > div:last-child {
-    display:none;
-  }
+ 
   h1 {
     text-align:center;
     color:white;
@@ -163,6 +161,9 @@ a {
      
    #bienvenida{
      display: none;
+     text-align:center;
+     margin-top:30px;
+
    }
    #signup{
      display: block;
@@ -174,6 +175,11 @@ a {
      font-size:10px;
      width:80px;
      float: right;
+   }
+   #inicio{
+     display: none;
+     text-align:center;
+     margin-top:30px;
    }
 
 

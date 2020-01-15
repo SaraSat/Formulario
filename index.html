@@ -9,7 +9,7 @@
     <title>Formulario</title>
 </head>
 <body>
-   <form method="POST">
+   <form>
   <div class="form" id="form">
       
         <div class="tab-group">
@@ -25,7 +25,6 @@
               <div class="field-wrap">
                 <label for="name">
                   Nombre<span class="req" >*</span>
-
                 </label>
                 <input type="text" id="name" required autocomplete="off" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" />
               </div>
@@ -50,7 +49,6 @@
                 <label for=""> Ver Contraseña</label> 
                 <input type="checkbox"  onclick="passVisible(this)" id="ver">
               </div>
-
               <label for="pass">
                 Contraseña<span class="req">*</span>
               </label>
@@ -69,9 +67,9 @@
               <input type="date" id="naci"  autocomplete="off" />
             </div>
             <button id="start" class="button">Aceptar</button>
-            </form>
   
           </div>
+          <!-- ------------------------------------------Página de logueo------------------------------------------------------------ !-->
           
           <div id="login">   
             <h1>Bienvenido</h1>
@@ -93,21 +91,24 @@
                 </div>
                 <input type="password" id="userPass" required autocomplete="off" pattern="^[a-zA-Z0-9_-]{8,20}$"/>
             </div>
-            
-            
             <button id="acept" class="button">Aceptar</button>
-            
-            </form>
-  
           </div>
-          
         </div><!-- tab-content -->
-        
-  </div> <!-- /form -->  
+      </div>  
+       
+
+  
+  <!-- Página de bienvenida  -->  
   <div id="bienvenida">
     <h1>Usted ha sido registrado, bienvenida</h1>
+    <button id="entrar">Entrar</button>
   </div>
-  
+  <!-- Vista de logueo-->
+  <div id="inicio">
+    <h2>Inicio</h2>
+    <button id="salir">Salir</button>
+  </div>
+  <form>  
 </body>
 <script src="/js/form.js"></script>  
 </html>
