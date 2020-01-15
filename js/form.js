@@ -2,21 +2,21 @@
 //Eventos para cambiar formulario
 //Botón de registro
 document.getElementById("sign").addEventListener("click",  function () {
-  eventButtom("signup","login");
+  eventButtom("signup","login","","");
   cambioButtom("sign","log");
   
 });
 //Botón de logueo
 document.getElementById("log").addEventListener("click", function () {
-  eventButtom("login","signup");
+  eventButtom("login","signup","","");
   cambioButtom("log","sign");
 });
 
 //función que despliega el formulrio indicado mientras ocula el otro
-function eventButtom(element1, element2){
+function eventButtom(element1, element2, element3, valor){
   document.getElementById(element1).style.display="block";
   document.getElementById(element2).style.display="none";
-  
+  document.getElementById(element3).style.display=valor;
 }
 //función que cambia la apariencia del botón de logueo o registro para indicar al usuario dónde se encuentra
  function cambioButtom(element1, element2){
@@ -39,11 +39,12 @@ var userPass=document.getElementById("userPass");
 
 //Checkbox contraseña visible
 var checkbox=document.getElementById("ver");
+var checkbox2=document.getElementById("ver2");
 
 //Funcion para hacer visible la contraseña, evento creado en el HTML
 function passVisible(checkbox){
   
-    if(checkbox.checked==true){
+    if(checkbox.checked==true || checkbox2==true){
       pass.type="text";
       pass2.type="text";
 
@@ -63,7 +64,9 @@ function passVisible(checkbox){
 
 
   //En la vista de bienvenida, al pulsar entrar, podrás acceder al formulario de logueo
-  document.getElementById("entrar").addEventListener("click", eventButtom("inicio","bienvenida"));
+  document.getElementById("entrar").addEventListener("click",function(){
+    eventButtom("login","bienvenida","form","block");
+  });
 
 //Una vez iniciada sesión, se tiene la opción de salir
   document.getElementById("salir").addEventListener("click", salir);
@@ -78,7 +81,8 @@ se crean las cookies de usuario y contraseña, y, se mostrará una bienvenida */
     validarPass(pass, pass2)){
       setCookie("usuario",email.value,365);
       setCookie("contraseña",pass.value,365);
-      eventButtom("bienvenida","form");
+      eventButtom("bienvenida","signup","form","none");
+      document.getElementById("datosRegistro").innerHTML="Usuario: "+getCookie("usuario")+", contraseña: "+getCookie("contraseña");
       return true;
   }
   else{
@@ -91,7 +95,7 @@ function validarLogin(){
   var contraseña=getCookie("contraseña");
   if(user.value==usuario && userPass==contraseña){
     setCookie("User",user,1/24);
-    eventButtom("inicio","form-login");
+    eventButtom("inicioSesion","login","form","none");
     return true;
   }else if(user.value!=usuario){
     validarMatch(user,"El usuario no es correcto");
@@ -171,23 +175,25 @@ function validarMatch(id,mensaje){
     var date=new Date();
     date.setTime(date.getTime()+ expiracion*24*60*60*1000);
     var expiracion="expires="+date.toUTCString();
-    document.cookie=nombre +"="+valor+";"+expiracion+";"; //(nombre, valor, expiracion)
+    document.cookie=nombre +"="+valor+";"+expiracion+"; path=/"; //(nombre, valor, expiracion)
   }
   //Obtención de cookie por su nombre
   function getCookie(nombre){
-    var n=nombre;
-    var array=documen.cookie.split(";"); //Conversión de la cookie en un array para poder obtener su valor --> nombre=valor;expiracion;
-    for(let i=0; i<array.length;i++){
-        var c=array[i];
-        while (c.charAt(0)=" "){ //si se encuentra un espacio en blanco, se borra
-          c=c.subString(1)
+    var n=nombre+"=";
+    var array=document.cookie.split(";"); //Creación de un array para guardar las cookies con nombre=valor --> nombre=valor;expiracion;
+    for(var i=0; i<array.length;i++){
+        var c=array[i]; //a c se le asigna cada cookie y su valor
+        while (c.charAt(0)==" "){ 
+          c=c.substring(1) // Se va extrayendo el caracter 0 hasta encontrar un espacio
         }
         if(c.indexOf(nombre)==0){
-          return c.subString(nombre.length,c.length); //Obtencion del valor de la cookie
+          return c.substring(n.length,c.length); //Obtencion del valor de la cookie
+        }else{
+              return " "; //Si no se encuentra una cookie con el nombre introducido, no devuelve nada
+
         }
 
     }
-    return " "; //Si no se encuentra una cookie con el nombre introducido, no devuelve nada
   }
   //Borrar cookies
   function deleteCookie(nombre){
@@ -197,7 +203,7 @@ function validarMatch(id,mensaje){
   //AL pulsar salir se borrará la cookie del usuario actual y se verá la vista de inicio de sesión
   function salir(){
     deleteCookie("User");
-    eventButtom("form","inicio");
+    eventButtom("login","inicioSesion","form","block");
 
   }
  

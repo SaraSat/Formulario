@@ -9,33 +9,32 @@
     <title>Formulario</title>
 </head>
 <body>
-   <form>
   <div class="form" id="form">
       
-        <div class="tab-group">
-          <button  id="sign">Sign Up</button>
-          <button  id="log">Log In</button>
-        </div>
+    <div class="tab-group">
+      <button  id="sign">Sign Up</button>
+      <button  id="log">Log In</button>
+      </div>
         
-        <div class="tab-content">
-          <div id="signup">  
-            <h1>Registro</h1>
+      <div class="tab-content">
+        <div id="signup">  
+          <h1>Registro</h1>
 
-            <div class="top-row">
-              <div class="field-wrap">
-                <label for="name">
-                  Nombre<span class="req" >*</span>
-                </label>
-                <input type="text" id="name" required autocomplete="off" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" />
-              </div>
+          <div class="top-row">
+            <div class="field-wrap">
+              <label for="name">
+                Nombre<span class="req" >*</span>
+              </label>
+              <input type="text" id="name" required autocomplete="off" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" />
+            </div>
           
-              <div class="field-wrap">
-                <label for="2name">
+            <div class="field-wrap">
+              <label for="2name">
                   Apellido<span class="req">*</span>
                 </label>
                 <input type="text" id="2name" required autocomplete="off" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"/>
               </div>
-            </div>
+          </div>
   
             <div class="field-wrap">
               <label for="mail">
@@ -67,8 +66,8 @@
               <input type="date" id="naci"  autocomplete="off" />
             </div>
             <button id="start" class="button">Aceptar</button>
-  
           </div>
+        
           <!-- ------------------------------------------Página de logueo------------------------------------------------------------ !-->
           
           <div id="login">   
@@ -87,28 +86,27 @@
               </label>
               <div class="ver">
                   <label for=""> Ver Contraseña</label> 
-                  <input type="checkbox"  onclick="passVisible(this)" id="ver">
+                  <input type="checkbox"  onclick="passVisible(this)" id="ver2">
                 </div>
                 <input type="password" id="userPass" required autocomplete="off" pattern="^[a-zA-Z0-9_-]{8,20}$"/>
             </div>
             <button id="acept" class="button">Aceptar</button>
           </div>
-        </div><!-- tab-content -->
-      </div>  
-       
+        </div> <!-- tab-content -->
+       </div> <!-- Form!-->
 
-  
   <!-- Página de bienvenida  -->  
   <div id="bienvenida">
     <h1>Usted ha sido registrado, bienvenida</h1>
+    <p id="datosResgistro"> </p>
     <button id="entrar">Entrar</button>
   </div>
   <!-- Vista de logueo-->
-  <div id="inicio">
+  <div id="inicioSesion">
     <h2>Inicio</h2>
     <button id="salir">Salir</button>
   </div>
-  <form>  
 </body>
+
 <script src="/js/form.js"></script>  
 </html>
