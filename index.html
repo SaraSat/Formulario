@@ -29,10 +29,10 @@
             </div>
           
             <div class="field-wrap">
-              <label for="2name">
+              <label for="name2">
                   Apellido<span class="req">*</span>
                 </label>
-                <input type="text" id="2name" required autocomplete="off" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"/>
+                <input type="text" id="name2" required autocomplete="off" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"/>
               </div>
           </div>
   
@@ -88,7 +88,7 @@
                   <label for=""> Ver Contraseña</label> 
                   <input type="checkbox"  onclick="passVisible(this)" id="ver2">
                 </div>
-                <input type="password" id="userPass" required autocomplete="off" pattern="^[a-zA-Z0-9_-]{8,20}$"/>
+                <input type="password" id="userPass" required autocomplete="off"/>
             </div>
             <button id="acept" class="button">Aceptar</button>
           </div>
@@ -97,13 +97,13 @@
 
   <!-- Página de bienvenida  -->  
   <div id="bienvenida">
-    <h1>Usted ha sido registrado, bienvenida</h1>
+    <h1>Usted ha sido registrada, bienvenida</h1>
     <p id="datosRegistro"> </p>
     <button id="entrar">Entrar</button>
   </div>
   <!-- Vista de logueo-->
   <div id="inicioSesion">
-    <h2>Inicio</h2>
+    <h2>Usted ha iniciado sesión </h2>
     <button id="salir">Salir</button>
   </div>
 </body>

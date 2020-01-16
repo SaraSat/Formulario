@@ -17,7 +17,7 @@ function eventButtom(element1, element2, element3, valor){
   document.getElementById(element1).style.display="block";
   document.getElementById(element2).style.display="none";
   if (element3) {
-    document.getElementById(element3).style.display=valor;
+    document.getElementById(element3).style.display=valor; //Si es necesario se podrá cambiar el display de otro elemento más
   }
 }
 //función que cambia la apariencia del botón de logueo o registro para indicar al usuario dónde se encuentra
@@ -31,7 +31,7 @@ function eventButtom(element1, element2, element3, valor){
 //Variables:
 //Registro
 var nom=document.getElementById("name");
-var name2=document.getElementById("2name");
+var name2=document.getElementById("name2");
 var email=document.getElementById("email");
 var pass=document.getElementById("pass");
 var pass2=document.getElementById("pass2");
@@ -84,7 +84,7 @@ se crean las cookies de usuario y contraseña, y, se mostrará una bienvenida */
       setCookie("usuario",email.value,365);
       setCookie("contraseña",pass.value,365);
       eventButtom("bienvenida","signup","form","none");
-      document.getElementById("datosRegistro").innerHTML="Usuario: "+getCookie("usuario")+", contraseña: "+getCookie("contraseña");
+      document.getElementById("datosRegistro").innerHTML="Su usuario será: "+getCookie("usuario");
       return true;
   }
   else{
