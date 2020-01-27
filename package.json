@@ -1,0 +1,26 @@
+{
+  "name": "formulario",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npx protractor test/conf.js",
+    "test-server": "npx webdriver-manager start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaraSat/Formulario.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaraSat/Formulario/issues"
+  },
+  "homepage": "https://github.com/SaraSat/Formulario#readme",
+  "dependencies": {
+    "protractor": "^5.4.2"
+  }
+}

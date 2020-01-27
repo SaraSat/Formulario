@@ -1,0 +1,18 @@
+Para realizar los test: 
+
+a través de cmd: 
+npm run test-server
+
+SE ejectua webdriver de protractor; 
+
+En otra consola ejecutar: 
+npm test --> Se ejectuta el archivo conf.js que arranca los test. 
+
+Otra opcion: 
+consola ejecutar: npx webdriver start
+otra consola ejecutar: npx protractor test/conf.js
+
+Nota: Se necesita instalar protractor, y añadir el plugin  web server for Chrome
+y añadir el puerto 5500
+
+
